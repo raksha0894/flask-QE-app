@@ -2,12 +2,9 @@ from flask import Flask, jsonify, request
 import kiwi
 from kiwi import constants as const
 from flask_cors import CORS
-from zipfile import ZipFile
+
 
 # load model
-zf = ZipFile('trained_models/estimator_en_de.zip', 'r')
-zf.extractall('trained_models/estimator_en_de')
-zf.close()
 model = kiwi.load_model('trained_models/estimator_en_de/estimator_en_de.torch')
 # app
 app = Flask(__name__)
